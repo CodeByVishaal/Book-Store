@@ -1,6 +1,3 @@
-import os
+from flask import Blueprint
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+main = Blueprint('main', __name__, template_folder='templates')
