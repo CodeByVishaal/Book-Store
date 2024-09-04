@@ -10,11 +10,11 @@ def create_app(config_type):
 
     configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
 
-    app.config.from_file(configuration)
+    app.config.from_pyfile(configuration)
 
     db.init_app(app)
 
-    from app.config import main
+    from app.catalog import main
     app.register_blueprint(main)
 
     return app
