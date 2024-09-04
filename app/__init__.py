@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 def create_app(config_type):
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='static')
 
     configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
 
