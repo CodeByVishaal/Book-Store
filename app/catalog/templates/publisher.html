@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publisher Info</title>
-</head>
-<body>
-    <h4>Books by {{publisher}}</h4>
+{% extends 'layout.html' %}
 
-    <ul>
+{% block content %}
+
+<div class="container publisher">
+    <h4>Books by {{publisher}}</h4>
+    <hr>
+    <br>
+    <ol>
         {% for book in publisher_books %}
 
-            <li>{{book.title}} by {{book.author}}</li>
-            {% endfor %}
-    </ul>    
-</body>
-</html>
+        <li type="1">{{book.title}} by {{book.author}}</li>
+        {% endfor %}
+    </ol>
+</div>
+
+{% endblock %}

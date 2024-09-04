@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Book</title>
-</head>
+{% block content %}
 
-<body>
-    {% for book in books %}
-    <img src="static/img/{{book.image}}" alt="book-img" width="190" height="200" class="img-rounded">
-    <h4>Title: {{book.title}}</h4>
-    <p>Author: {{book.author}}</p>
-    <p>Format: {{book.format}} </p>
-    <p>Rating: {{book.avg_rating}} </p>
-    <p>Pages: {{book.num_pages}}</p>
-    <p>Img: {{book.image}}</p>
-    <p><a href="{{url_for('main.display_publisher', publisher_id = book.pub_id)}}">Publisher ID: {{book.pub_id}}</a></p>
+<div class="container books">
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-4">
+            <img src="static/img/{{book.image}}" alt="book-img" width="190" height="200" class="img-rounded">
+            <h4>Title: {{book.title}}</h4>
+            <p>Author: {{book.author}}</p>
+            <p>Format: {{book.format}} </p>
+            <p>Rating: {{book.avg_rating}} </p>
+            <p>Pages: {{book.num_pages}}</p>
+            <p>Img: {{book.image}}</p>
+            <p><a href="{{url_for('main.display_publisher', publisher_id = book.pub_id)}}">Publisher ID:
+                    {{book.pub_id}}</a>
+            </p>
+            <br>
+        </div>
 
-    {% endfor %}
-</body>
+        {% endfor %}
 
-</html>
+    </div>
+</div>
+
+{% endblock %}

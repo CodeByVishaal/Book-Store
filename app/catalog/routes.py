@@ -5,7 +5,7 @@ from app.catalog.models import Book, Publication
 
 
 @main.route('/')
-def get_book():
+def display_books():
     books = Book.query.all()
 
     return render_template('home.html', books=books)
