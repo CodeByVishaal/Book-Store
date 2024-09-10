@@ -5,34 +5,8 @@
 <div class="container form text-center">
     <hr>
     <br>
-    <form action="/register" method="post">
-        <!-- Security Feature provided by WT Forms -->
-        {{ form.hidden_tag() }}
-
-        <div class="form-group">
-            {{ form.name.label }}
-            {{ form.name }}
-        </div>
-
-        <div class="form-group">
-            {{ form.email.label }}
-            {{ form.email }}
-        </div>
-
-        <div class="form-group">
-            {{ form.submit(class='btn btn-primary') }}
-        </div>
-
-        <hr>
-        {% if (name) and (email) %}
-        <div>
-            <p>Welcome {{name}}</p>
-            <p>Your mail ID is {{email}}</p>
-        </div>
-
-        {% endif %}
-
-    </form>
+    {{ form.hidden_tag() }}
+    {{ wtf.quick_form(form) }}
 </div>
 
 
