@@ -8,6 +8,8 @@ from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
+login_manager = LoginManager()
+bcrypt = Bcrypt()
 
 def create_app(config_type):
     app = Flask(__name__, static_folder='static')
