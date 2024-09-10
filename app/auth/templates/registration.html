@@ -1,28 +1,40 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h4 class="text-center"><strong>Register Here</strong></h4>
-    <div class="container form text-center">
+<h4 class="text-center"><strong>Register Here</strong></h4>
+<div class="container form text-center">
+    <hr>
+    <br>
+    <form action="/register" method="post">
+        <!-- Security Feature provided by WT Forms -->
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            {{ form.submit(class='btn btn-primary') }}
+        </div>
+
         <hr>
-        <br>
-        <form action="/register" method="post">
-            <!-- Security Feature provided by WT Forms -->
-            {{ form.hidden_tag() }}
+        {% if (name) and (email) %}
+        <div>
+            <p>Welcome {{name}}</p>
+            <p>Your mail ID is {{email}}</p>
+        </div>
 
-            <div class="form-group">
-                {{ form.name.label }}
-                {{ form.name }}
-            </div>
+        {% endif %}
 
-            <div class="form-group">
-                {{ form.email.label }}
-                {{ form.email }}
-            </div>
+    </form>
+</div>
 
-            <div class="form-group">
-                {{ form.submit(class='btn btn-primary') }}                
-            </div>
-        </form>
-    </div>
+
 
 {% endblock %}
