@@ -9,6 +9,8 @@ from flask_bcrypt import Bcrypt
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 login_manager = LoginManager()
+login_manager.login_view = 'authentication.do_the_login'
+login_manager.session_protection = 'strong'
 bcrypt = Bcrypt()
 
 def create_app(config_type):
@@ -21,8 +23,8 @@ def create_app(config_type):
     db.init_app(app)
     bootstrap.init_app(app)
     bootstrap.load_css = True
-    login_manager = LoginManager(app)
-    bcrypt = Bcrypt(app)
+    login_manager.init_app(app)
+    bcrypt.init_app(app)
 
     from app.catalog import main
     app.register_blueprint(main)

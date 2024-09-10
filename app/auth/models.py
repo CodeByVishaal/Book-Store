@@ -12,6 +12,9 @@ class User(UserMixin, db.Model):
     user_password = db.Column(db.String(100))
     registration_date = db.Column(db.DateTime, default=datetime.now)
 
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.user_password, password)
+
     @classmethod
     def create_user(cls, user, email, password):
         user = cls(user_name=user,
@@ -24,5 +27,5 @@ class User(UserMixin, db.Model):
         return user
     
 @login_manager.user_loader
-def load_user(user_id):
+def load_user(id):
     return User.query.get(int(id))
