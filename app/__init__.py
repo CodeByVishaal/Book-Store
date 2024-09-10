@@ -3,6 +3,8 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
@@ -17,6 +19,8 @@ def create_app(config_type):
     db.init_app(app)
     bootstrap.init_app(app)
     bootstrap.load_css = True
+    login_manager = LoginManager(app)
+    bcrypt = Bcrypt(app)
 
     from app.catalog import main
     app.register_blueprint(main)
