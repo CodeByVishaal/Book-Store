@@ -1,6 +1,4 @@
-import os
+from flask import Blueprint
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+authentication = Blueprint('authentication', __name__, template_folder='templates')
+from app.auth import routes
