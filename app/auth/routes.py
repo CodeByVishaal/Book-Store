@@ -1,12 +1,17 @@
 from flask import request, render_template, flash, redirect, url_for
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from app.auth import authentication as at
 from app.auth.forms import RegistrationForm, LoginForm
 from app.auth.models import User
 
 @at.route('/register', methods=['GET', 'POST'])
 def register_user():
+    
     form = RegistrationForm()
+
+    if current_user.is_authenticated:
+        flash("You are already logged in!")
+        return redirect(url_for('main.display_books'))
 
     if form.validate_on_submit():
         User.create_user(
@@ -21,6 +26,10 @@ def register_user():
 
 @at.route('/login', methods=['GET', 'POST'])
 def do_the_login():
+
+    if current_user.is_authenticated:
+        flash("You are already logged in!")
+        return redirect(url_for('main.display_books'))
 
     form = LoginForm()
     if form.validate_on_submit():
