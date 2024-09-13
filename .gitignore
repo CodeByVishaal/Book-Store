@@ -2,3 +2,6 @@
 lib/
 scripts/
 book_catalog
+.idea/*
+*.pyc
+*/__pycache__/
