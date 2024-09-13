@@ -1,4 +1,5 @@
 Book Store Web Application
+
 Welcome to the Book Catalog Web Application! This project is a Flask-based web application designed for managing a catalog of books. It provides a clean and intuitive interface for adding, viewing, and editing book entries. The application also includes basic user management features.
 
 Features
