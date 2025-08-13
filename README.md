@@ -77,7 +77,7 @@ Contributions are welcome! If you want to contribute to the project:
 3. **Submit a Pull Request**: Share your changes and explain what you’ve done.
 
 ## Authors
-- Vishal R
+- Vishal Rajan
 
 ## Acknowledgments
 - **Flask**: A micro web framework for Python.
